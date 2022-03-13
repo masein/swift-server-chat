@@ -21,6 +21,18 @@ struct ReceivingChatMessage: Encodable, Identifiable {
     let senderID: UUID
     let receiver: String
 }
+struct CallMessage: Codable, Identifiable {
+    var id = UUID()
+    let type: CallRequestType
+    let sender: String
+    let senderID: UUID
+    let receiver: String
+}
+enum CallRequestType: Codable {
+    case call
+    case answer
+    case reject
+}
 struct Notification: Encodable {
     let messssage: ReceivingChatMessage
 }
